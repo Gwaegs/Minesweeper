@@ -1,0 +1,61 @@
+import random
+
+class Tile : 
+    bomb = False
+    num = 0
+    flipped = False
+    
+list = []
+
+for i in range(64):
+    t = Tile()
+    list.append(t)
+
+for i in range(8):
+    list[random.randint(0, 63)].bomb = True
+
+i = 0
+
+while True :
+    for Tile in list :
+        i = i + 1
+        if Tile.flipped == False :
+            print ("[]", end =" ")
+        else :
+            print (Tile.num, end =" ")
+        if (i % 8 == 0) :
+            print ("")
+    
+    row = int(input("Enter Row #:\n"))
+    column = int(input("Enter Column #:\n"))
+
+    if list[row*8-7+column-2].bomb == True :
+        break
+    else :
+        list[row*8-7+column-2].flipped = True
+        if row*8-7+column-2-8 >= 0 and row*8-7+column-2-8 < 64 :
+            if list[row*8-7+column-2-8].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2-7 >= 0 and row*8-7+column-2-7 < 64 :
+            if list[row*8-7+column-2-7].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2-9 >= 0 and row*8-7+column-2-9 < 64 :
+            if list[row*8-7+column-2-9].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2+1 >= 0 and row*8-7+column-2+1 < 64 :
+            if list[row*8-7+column-2+1].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if  row*8-7+column-2-1 >= 0 and row*8-7+column-2-1 < 64 :
+            if list[row*8-7+column-2-1].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2+8 >= 0 and row*8-7+column-2+8 < 64 :
+            if list[row*8-7+column-2+8].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2+7 >= 0 and row*8-7+column-2+7 < 64 :
+            if list[row*8-7+column-2+7].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+        if row*8-7+column-2+9 >= 0 and row*8-7+column-2+9 < 64 :
+            if list[row*8-7+column-2+9].bomb == True :
+                list[row*8-7+column-2].num = list[row*8-7+column-2].num + 1
+                
+print ("Game Over")
