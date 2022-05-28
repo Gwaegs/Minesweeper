@@ -11,8 +11,13 @@ for i in range(64):
     t = Tile()
     list.append(t)
 
-for i in range(8):
-    list[random.randint(0, 63)].bomb = True
+for i in range(10):
+    temp = random.randint(0, 63)
+    if list[temp].bomb == False :
+        list[temp].bomb == True
+    else :
+        i--
+    
 
 i = 0
 
